@@ -22,5 +22,14 @@ cat access.log | perl -pe 's/([\d]{10})/localtime $1/eg;'
 ```
 cat iplist.txt | cut -d '.' -f 1-3 | sort -n | uniq
 ```
+### Print lines from the access log files where nth column values are in the range specified
+```
+cat access.log | awk '$5 >= 1000000 && $5 < 2000000 {print ;}' 
+```
+### Print lines from the access log file where nth column value exactly matches with the provided value
+```
+cat access.log | grep TCP_MISS | awk '$7 == 200  {print ;}'
+```
+
 
 
