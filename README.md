@@ -18,5 +18,9 @@ perl -pe 's/([\d]{10})/localtime $1/eg;'
 ```
 cat access.log | perl -pe 's/([\d]{10})/localtime $1/eg;'
 ```
+### Print only first three octects of IPv4 addresses from the list of IPs from the file
+```
+cat iplist.txt | cut -d '.' -f 1-3 | sort -n | uniq
+```
 
 
