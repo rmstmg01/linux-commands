@@ -1,4 +1,3 @@
-
 # Linux Commands One Liner
 ### List out multiple IPv4/v6 IPs assigned to the server
 IPv4: 
@@ -8,6 +7,14 @@ ip -4 a | grep global | sed 's/\/.*//g' | awk '{print $2}'
 IPv6:
 ```
 ip -6 a | grep global | sed 's/\/.*//g' | awk '{print $2}'
+```
+
+### Assigning a subnet of IPs using Network Manager Command Line Interface (nmcli)
+```
+for I in $(seq 2 254); do nmcli con mod eth0 +ipv4.addresses 192.168.0.${I}; done
+```
+```
+nmcli con up eth0
 ```
 ### Convert unix time stamp to human readable time format for access log
 
